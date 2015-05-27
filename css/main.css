@@ -17,6 +17,11 @@ section dl {
 	float: left;
 }
 
+.photo img {
+	width: 100%;
+	height: 100%;
+}
+
 .name, .email {
 	width: 200px;
 	float: left;
