@@ -1,19 +1,15 @@
 var ContactListService = {
 	
-	contactList: [],
+	list: [],
 	
 	getList: function() {
 		ContactListService.getFromLocalStorage();
-		return ContactListService.contactList;
+		return ContactListService.list;
 	},
 	
 	add: function(contact) {
-		ContactListService.contactList.push(contact);
+		ContactListService.list.push(contact);
 		ContactListService.saveToLocalStorage();
-	},
-	
-	update: function(contact) {
-		//TODO to implement
 	},
 	
 	remove: function(contact) {
@@ -21,14 +17,14 @@ var ContactListService = {
 	},
 	
 	saveToLocalStorage: function() {
-		var jsonText = JSON.stringify(ContactListService.contactList);
+		var jsonText = JSON.stringify(ContactListService.list);
 		window.localStorage.setItem('contact-list', jsonText);
 	},
 	
 	getFromLocalStorage: function() {
 		var jsonText = window.localStorage.getItem('contact-list');
 		if(jsonText) {
-			ContactListService.contactList = JSON.parse(jsonText);
+			ContactListService.list = JSON.parse(jsonText);
 		}
 	}
 	

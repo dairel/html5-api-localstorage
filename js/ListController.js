@@ -39,7 +39,7 @@ var ListController = {
 			section = document.getElementById('guestList'),
 			dl = document.createElement('dl'),
 			dt = ListController.createDT(contact),
-			ddName = ListController.createDD(contact.name, 'name'),
+			ddName = ListController.createDDName(contact.name, 'name'),
 			ddEmail = ListController.createDD(contact.email, 'email');
 		
 		dl.appendChild(dt);
@@ -49,10 +49,10 @@ var ListController = {
 		section.appendChild(dl);
 	},
 	
-	createImage: function(contact) {
+	createImage: function(location) {
 		var img = document.createElement('img');
 		
-		img.src = "images/profile.svg";
+		img.src = location;
 		
 		return img;
 	},
@@ -60,8 +60,8 @@ var ListController = {
 	createDT: function(contact) {
 		var dt = document.createElement('dt');
 		
-		dt.className = "photo";
-		dt.appendChild(ListController.createImage(contact));
+		dt.className = 'photo';
+		dt.appendChild(ListController.createImage('images/profile.svg'));
 		
 		return dt;
 	},
@@ -71,6 +71,16 @@ var ListController = {
 		
 		dd.className = className;
 		dd.innerHTML = value;
+		
+		return dd;
+	},
+	
+	createDDName: function(value, className) {
+		var 
+			dd = ListController.createDD(value, className);
+		  img = ListController.createImage('images/delete.gif');
+		
+		dd.appendChild(img);
 		
 		return dd;
 	}
